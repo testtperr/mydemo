@@ -13,7 +13,7 @@ import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
 
 public class HttpApplication extends AbstractVerticle {
 
-  private static final String template = "Hello, %s!";
+  private static final String template = "Hello Demo,  %s!";
 
   private boolean online = false;
 
@@ -29,6 +29,7 @@ public class HttpApplication extends AbstractVerticle {
     router.get("/api/health/readiness").handler(rc -> rc.response().end("OK"));
     router.get("/api/health/liveness").handler(healthCheckHandler);
     router.get("/").handler(StaticHandler.create());
+    System.out.print("test");
 
     vertx
       .createHttpServer()
